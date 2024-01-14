@@ -11,9 +11,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
     <title>Your Website</title>
 </head>
 
@@ -22,12 +22,12 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- <div class="col-auto"> -->
-                <img src="y-nghia-logo-fpt-lan-3.jpg" alt="Company Logo">
+                <img src="assets/img/y-nghia-logo-fpt-lan-3.jpg" alt="Company Logo">
                 <!-- </div> -->
                 <!-- <div class="col text-end"> -->
                 <div class="user-info">
                     <p>thuy vy</p>
-                    <img src="avatar.jpg" alt="Avatar">
+                    <img src="assets/img/avatar.jpg" alt="Avatar">
                     <a href="#">Logout</a>
                 </div>
                 <!-- </div> -->
@@ -81,7 +81,7 @@
                         <h1>Hồ sơ cá nhân</h1>
                         <div class="profile-container">
                             <div class="profile-image">
-                                <img src="avatar.jpg" alt="Profile Picture">
+                                <img src="assets/img/avatar.jpg" alt="Profile Picture">
                             </div>
 
                             <div class="profile-info">

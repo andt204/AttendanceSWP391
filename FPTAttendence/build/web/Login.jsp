@@ -46,9 +46,7 @@
                                                      style="width: 185px;" alt="logo">
                                                 <h4 class="mt-1 mb-5 pb-1">We are FPT</h4>
                                             </div>
-
                                             <form>
-
                                                 <div class="form-outline mb-4">
                                                     <input type="text" id="form2Example11" class="form-control"
                                                            placeholder="Employee ID or Staff ID" name="txtUsername" />
@@ -72,11 +70,7 @@
                                                         in</button>
                                                     <a class="text-muted" href="#!">Forgot password?</a>
                                                 </div>
-
-
-
                                             </form>
-
                                         </div>
                                     </div>
                                     <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -91,12 +85,8 @@
                     </div>
                 </div>
             </section>
-
         </form>
-
         <!-- Show error if any -->
-
-
     </div>
 </body>
 </html>
