@@ -9,23 +9,23 @@ package Dto;
  * @author NCM
  */
 public class Dto {
-    private String UserID;
+    private int UserID;
     private String UserName;
     private String PassWord;
     private int Role;
 
-    public Dto(String UserID, String UserName, String PassWord, int Role) {
+    public Dto(int UserID, String UserName, String PassWord, int Role) {
         this.UserID = UserID;
         this.UserName = UserName;
         this.PassWord = PassWord;
         this.Role = Role;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return UserID;
     }
 
-    public void setUserID(String UserID) {
+    public void setUserID(int UserID) {
         this.UserID = UserID;
     }
 
