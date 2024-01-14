@@ -5,7 +5,7 @@
 
 package Controller;
 
-import DBHelper.Dao;
+import dal.Dao;
 import Models.Dto;
 import java.io.IOException;
 import java.io.PrintWriter;
