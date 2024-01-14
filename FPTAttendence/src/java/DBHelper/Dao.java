@@ -4,8 +4,8 @@
  */
 package DBHelper;
 
-import Dto.Dto;
-import Dto.Employees;
+import Models.Dto;
+import Models.Employees;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

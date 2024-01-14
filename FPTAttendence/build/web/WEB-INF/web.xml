@@ -2,19 +2,19 @@
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
         <servlet-name>EmployeesController</servlet-name>
-        <servlet-class>Servlet.EmployeesController</servlet-class>
+        <servlet-class>Controller.EmployeesController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>Servlet.Login</servlet-class>
+        <servlet-class>Controller.Login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManagerController</servlet-name>
-        <servlet-class>Servlet.ManagerController</servlet-class>
+        <servlet-class>Controller.ManagerController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>In4Employees</servlet-name>
-        <servlet-class>Servlet.In4Employees</servlet-class>
+        <servlet-class>Controller.In4Employees</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmployeesController</servlet-name>
@@ -35,7 +35,7 @@
     <welcome-file-list>
         <welcome-file>Login</welcome-file>
     </welcome-file-list>
-     <error-page>
+    <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/error.jsp</location>
     </error-page>
