@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller;
+package controller;
 
-import dal.Dao;
-import Models.Dto;
+import dal.AccountDAO;
+import models.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -81,8 +81,8 @@ public class Login extends HttpServlet {
            String username = request.getParameter("txtUsername");
            String password = request.getParameter("txtPassword");
            String errorMessage = "";
-           Dao dao = new Dao();
-           Dto account = dao.checkLogin(username, password);
+           AccountDAO dao = new AccountDAO();
+           AccountDTO account = dao.checkLogin(username, password);
            
            if (account!=null) {
                try {
@@ -99,7 +99,7 @@ public class Login extends HttpServlet {
                        session.setAttribute("account", account);
                        response.sendRedirect(url);
                    }else if (role == 1) {
-                       url = "HomeAdmin.jsp";
+                       url = "dashboard";
                        HttpSession session = request.getSession();
                        session.setAttribute("account", account);
                        response.sendRedirect(url);}

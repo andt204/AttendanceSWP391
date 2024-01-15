@@ -2,19 +2,27 @@
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
         <servlet-name>EmployeesController</servlet-name>
-        <servlet-class>Controller.EmployeesController</servlet-class>
+        <servlet-class>controller.EmployeesController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>Controller.Login</servlet-class>
+        <servlet-class>controller.Login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManagerController</servlet-name>
-        <servlet-class>Controller.ManagerController</servlet-class>
+        <servlet-class>controller.ManagerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardControler</servlet-name>
+        <servlet-class>controller.DashboardControler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>employeeDAO</servlet-name>
+        <servlet-class>dal.employeeDAO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>In4Employees</servlet-name>
-        <servlet-class>Controller.In4Employees</servlet-class>
+        <servlet-class>controller.In4Employees</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmployeesController</servlet-name>
@@ -29,14 +37,42 @@
         <url-pattern>/HomeManager</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>DashboardControler</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>employeeDAO</servlet-name>
+        <url-pattern>/employeeDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>In4Employees</servlet-name>
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>Login</welcome-file>
     </welcome-file-list>
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/error.jsp</location>
-    </error-page>
+    <servlet>
+        <servlet-name>allDepServlet</servlet-name>
+        <servlet-class>controller.allDepServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addDep</servlet-name>
+        <servlet-class>controller.addDep</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteDepartment</servlet-name>
+        <servlet-class>controller.DeleteDepartment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allDepServlet</servlet-name>
+        <url-pattern>/department</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addDep</servlet-name>
+        <url-pattern>/addDep</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDepartment</servlet-name>
+        <url-pattern>/DeleteDepartment</url-pattern>
+    </servlet-mapping>
 </web-app>

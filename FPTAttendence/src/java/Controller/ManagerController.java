@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller;
+package controller;
 
-import Models.Dto;
+import models.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -32,7 +32,7 @@ public class ManagerController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            HttpSession session = request.getSession();
-            Dto acc = (Dto) session.getAttribute("account");
+            AccountDTO acc = (AccountDTO) session.getAttribute("account");
             if (acc == null) {
                 out.println("Access denied!");
             } else {

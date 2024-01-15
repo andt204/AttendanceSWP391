@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
+package controller;
 
-import dal.Dao;
-import Models.Dto;
+import dal.employeeDAO;
+import models.AccountDTO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,9 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +38,7 @@ public class EmployeesController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-            Dto acc = (Dto) session.getAttribute("account");
+            AccountDTO acc = (AccountDTO) session.getAttribute("account");
             if (acc == null) {
                 out.println("Access denied!");
             } else {
@@ -92,13 +89,13 @@ public class EmployeesController extends HttpServlet {
                 int gender = Integer.parseInt(request.getParameter("empGender"));
                 boolean genderCheck = false;
                 if (gender == 1) {
-                    genderCheck = true;
-                } else {
                     genderCheck = false;
+                } else {
+                    genderCheck = true;
                 }
                 String birthdateString = request.getParameter("empBirthdate");
 
-                Dao dao = new Dao();
+                employeeDAO dao = new employeeDAO();
 
                 boolean checkUpdate = false;
                 checkUpdate = dao.updateIn4Information(accid, name, Phone, email, address, genderCheck, birthdateString);

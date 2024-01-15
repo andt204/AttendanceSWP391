@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
+package controller;
 
-import dal.Dao;
-import Models.Dto;
-import Models.Employees;
+import dal.employeeDAO;
+import dal.employeeDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,6 +17,8 @@ import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.AccountDTO;
+import models.employee;
 
 /**
  *
@@ -38,14 +39,14 @@ public class In4Employees extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        Dto acc = (Dto) session.getAttribute("account");
+        AccountDTO acc = (AccountDTO) session.getAttribute("account");
         int empuserId = acc.getUserID();
-        Dao dao = new Dao();
-        Employees em = dao.getin4(empuserId);
+        employeeDAO dao = new employeeDAO();
+        employee em = dao.getin4(empuserId);
         request.setAttribute("emp", em);
-        String ms =null;
-                
-            ms =(String) request.getAttribute("ms");
+        String ms = null;
+
+        ms = (String) request.getAttribute("ms");
         request.setAttribute("ms", ms);
         RequestDispatcher rd = request.getRequestDispatcher("informationUser.jsp");
         rd.forward(request, response);

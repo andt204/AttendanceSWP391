@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="Models.Dto" %>
+<%@ page import="models.AccountDTO" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,13 +22,21 @@
                 text-align: center;
                 padding: 1rem;
                 .btn-primary {
-                    background-color: #59e720;
-                    border-color: #59e720;
+                    background-color: #007bff;
+                    border-color: #007bff;
+                    padding: .375rem .75rem;
+                    border-radius: .25rem;
+                    color: #fff;
+                    font-weight: 500;
                 }
 
                 .btn-primary:hover {
-                    background-color: #59e720;
-                    border-color: #59e720;
+                    background-color: #0069d9;
+                    border-color: #0062cc;
+                }
+
+                .btn-primary:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
                 }
             }
         </style>
@@ -45,12 +53,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <!-- <div class="col-auto"> -->
-                    <img src="y-nghia-logo-fpt-lan-3.jpg" alt="Company Logo">
+                    <img src="assets/img/y-nghia-logo-fpt-lan-3.jpg" alt="Company Logo">
                     <!-- </div> -->
                     <!-- <div class="col text-end"> -->
                     <div class="user-info">
                         <p>thuy vy</p>
-                        <img src="avatar.jpg" alt="Avatar">
+                        <img src="assets/img/avatar.jpg" alt="Avatar">
                         <a href="#">Logout</a>
                     </div>
                     <!-- </div> -->
@@ -58,9 +66,9 @@
             </div>
         </header>
 
-        <div class="container-fluid mt-3">
+        <div class="container-fluid">
             <div class="row">
-                <aside class="col-lg-2 col-md-3">
+                <aside class="col-lg-2 col-md-3"style="height: 100vh">
                     <ul class="nav flex-column">
                         <li class="nav-item"><a id="attendance" class="nav-link" href="#">Điểm danh</a></li>
                         <li class="nav-item"><a id="profile" class="nav-link" href="#">Thông tin cá nhân</a></li>
@@ -73,7 +81,7 @@
                 <main class="col-lg-10 col-md-9" >
 
                     <%
-                   Dto acc = (Dto) session.getAttribute("account");
+                   AccountDTO acc = (AccountDTO) session.getAttribute("account");
                     %>
                     <c:set var="em" value="${requestScope.emp}" />
                     <section class="profile" id="profile-content">
@@ -87,31 +95,46 @@
 
                                     <tr>
                                         <td>ID</td>
-                                        <td>${em.empId}</td>
+                                        <td>${em.employee_id}</td>
                                     </tr>
                                     <tr>
                                         <td>Full Name</td>
-                                        <td>${em.empName}</td>
+                                        <td>${em.name}</td>
                                     </tr>
+
+                                    <c:choose>
+                                        <c:when test="${em.gender}">
+                                            <tr>
+                                                <td>Gender</td>
+                                                <td>Female</td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr>
+                                                <td>Gender</td>
+                                                <td>Male</td>
+                                            </tr>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <tr>
                                         <td>Phone</td>
-                                        <td>${em.empNumber}</td>
+                                        <td>${em.phoneNumber}</td>
                                     </tr>
                                     <tr>
                                         <td>Address</td>
-                                        <td>${em.empAddress}</td>
+                                        <td>${em.address}</td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>
-                                        <td>${em.empEmail}</td>
+                                        <td>${em.email}</td>
                                     </tr>
                                     <tr>
                                         <td>Ngày sinh</td>
-                                        <td>${em.empBirthdate}</td>
+                                        <td>${em.birth_date}</td>
                                     </tr>
                                     <tr>
                                         <td>Hire Date</td>
-                                        <td>${em.empHiredate}</td>
+                                        <td>${em.hire_date}</td>
                                     </tr>
                                 </tbody>
                             </table>
