@@ -41,6 +41,7 @@ public class In4Employees extends HttpServlet {
         HttpSession session = request.getSession();
         AccountDTO acc = (AccountDTO) session.getAttribute("account");
         int empuserId = acc.getUserID();
+        int role = acc.getRole();
         employeeDAO dao = new employeeDAO();
         employee em = dao.getin4(empuserId);
         request.setAttribute("emp", em);

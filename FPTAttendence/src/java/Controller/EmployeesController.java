@@ -14,9 +14,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.lang.System.Logger;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import models.employee;
 
 /**
  *
@@ -34,13 +36,22 @@ public class EmployeesController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
             AccountDTO acc = (AccountDTO) session.getAttribute("account");
+            employeeDAO dao = new employeeDAO();
+            try {
+                
+            
+            employee em = dao.getin4(acc.getUserID());
+            request.setAttribute("emp", em);
+            } catch (Exception e) {
+            }
+            
             if (acc == null) {
-                out.println("Access denied!");
+                response.sendRedirect("Login");
             } else {
                 request.getRequestDispatcher("HomeEmployees.jsp").forward(request, response);
             }
@@ -59,7 +70,13 @@ public class EmployeesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -111,11 +128,11 @@ public class EmployeesController extends HttpServlet {
                 }
 
             } // sang tab thay doi thong tin nhan vien
-            else if (button.equals("Update Information")) {
+            else if (button.equals("Edit profile")) {
                 url = "updateIn4mationUser.jsp";
             }
         } catch (Exception ex) {
-            Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);

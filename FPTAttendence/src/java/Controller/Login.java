@@ -6,6 +6,7 @@
 package controller;
 
 import dal.AccountDAO;
+import dal.employeeDAO;
 import models.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.employee;
 
 /**
  *
@@ -83,7 +85,8 @@ public class Login extends HttpServlet {
            String errorMessage = "";
            AccountDAO dao = new AccountDAO();
            AccountDTO account = dao.checkLogin(username, password);
-           
+         employeeDAO em=new employeeDAO();
+         employee emp=em.getin4(account.getUserID());
            if (account!=null) {
                try {
                   

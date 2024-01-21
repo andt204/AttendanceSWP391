@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/updateIn4mationUser.jsp</url>
+            <bookmark id="1">
+                <name/>
+                <line>388</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/FPTAttendence/web/informationUser.jsp</file>
+            <file>file:/D:/FPTAttendence/src/java/dal/employeeDAO.java</file>
+            <file>file:/D:/FPTAttendence/src/java/controller/EmployeesController.java</file>
+            <file>file:/D:/FPTAttendence/web/updateIn4mationUser.jsp</file>
+            <file>file:/D:/FPTAttendence/src/java/dal/AccountDAO.java</file>
+            <file>file:/D:/FPTAttendence/src/java/dal/DBContext.java</file>
+            <file>file:/D:/FPTAttendence/web/HomeEmployees.jsp</file>
+            <file>file:/D:/FPTAttendence/src/java/controller/Logout.java</file>
+            <file>file:/D:/FPTAttendence/src/java/controller/In4Employees.java</file>
+            <file>file:/D:/FPTAttendence/web/WEB-INF/web.xml</file>
+            <file>file:/D:/FPTAttendence/src/java/controller/Login.java</file>
+        </group>
     </open-files>
 </project-private>
