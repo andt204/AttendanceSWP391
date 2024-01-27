@@ -47,13 +47,9 @@ public class EmployeeDAO {
                     return true;
                 }
             }
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
-            if (con != null) {
-                con.close();
-            }
+        }catch(Exception e){
+            
+            
         }
         return false;
     }
