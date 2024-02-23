@@ -7,10 +7,10 @@ import models.Employee;
 public class test {
 
     public static void main(String[] args) {
-        DashboardDAO dao = new DashboardDAO();
-        List<Employee> list = dao.getTop5Employee();
-        for (Employee object : list) {
-            System.out.println(list);
-        }
+        AccountDAO dao = new AccountDAO();
+        String password = "andepzai";
+        String username = "andepzai";
+        int roleId = 2;
+        dao.updateUser(1, username, password, roleId);
     }
 }
