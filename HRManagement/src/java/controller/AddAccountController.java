@@ -92,6 +92,11 @@ public class AddAccountController extends HttpServlet {
                 : role.equals("Employee") ? 3 : 0;
         // Validate and sanitize inputs
         if (username != null && password != null) {
+            if (new AccountDAO().isUsernameExists(username)) {
+                request.setAttribute("errorMessage", "Username already exists. Please choose another one.");
+                request.getRequestDispatcher("AddAccount.jsp").forward(request, response);
+                return; // Kết thúc phương thức nếu tên người dùng đã tồn tại
+            }
             if (isPasswordValid(password) == false && isusernameValid(username) == true) {
                 request.setAttribute("errorMessage", "Password must have "
                         + "at least 6 characters or more, including at least one "
