@@ -5,7 +5,6 @@ package controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-import configs.headerInfor;
 import dal.AttendanceDAO;
 import dal.DepartmentDAO;
 import java.io.IOException;
@@ -66,7 +65,6 @@ public class AttendanceReportController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        headerInfor.setSessionAttributes(request);
         String search = request.getParameter("search");
         DepartmentDAO d = new DepartmentDAO();
         ArrayList<Department> departmentList = d.getAllDepartments("");
