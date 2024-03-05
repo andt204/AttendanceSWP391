@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="models.AccountDTO" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,32 +11,154 @@
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!--[if lt IE 9]>
                     <script src="assets/js/html5shiv.min.js"></script>
                     <script src="assets/js/respond.min.js"></script>
             <![endif]-->
-        <%@ page import="java.util.Map" %>
-        <%@ page import="java.util.HashMap" %>
-
-        <%
-            // Assuming departmentEmployeeCount is available as a request attribute
-            Map<String, Integer> departmentEmployeeCount = (Map<String, Integer>) request.getAttribute("departmentEmployeeCount");
-        %>
     </head>
 
     <body>
-          <%
-                 AccountDTO acc = (AccountDTO) session.getAttribute("account");
-                 int role=     acc.getRole();
-        %>
-        <c:set var="em" value="${requestScope.emp}" />
         <div class="main-wrapper">
-            <% if (role == 2) { %>
-            <jsp:include page="SideBarforEm.jsp" />
-                  <% } else if (role == 3||role == 1) { %>
-            <jsp:include page="SideBarforManager.jsp" />
-            <% } %>
+            <div class="header">
+                <div class="header-left">
+                    <a href="dashboard" class="logo">
+                        <img src="assets/img/pngtree-hacker-logo-png-image_6408677.png" width="40" height="40" alt=""/> <span>BeztTech</span>                
+                    </a>
+                </div>
+                <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+                <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+                <ul class="nav user-menu float-right">
+                    <li class="nav-item dropdown d-none d-sm-block">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
+                        <div class="dropdown-menu notifications">
+                            <div class="topnav-dropdown-header">
+                                <span>Notifications</span>
+                            </div>
+                            <div class="drop-scroll">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="John Doe" src="assets/img/user.jpg" class="img-fluid">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+                                                    <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">V</span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+                                                    <p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">L</span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+                                                    <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">G</span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+                                                    <p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">V</span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+                                                    <p class="noti-time"><span class="notification-time">2 days ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="activities.html">View all Notifications</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-none d-sm-block">
+                        <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                    </li>
+                    <li class="nav-item dropdown has-arrow">
+                        <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                            <span class="user-img">
+                                <img class="rounded-circle" src="assets/img/user.jpg" width="24">
+                                <span class="status online"></span>
+                            </span>
+                            <span>${sessionScope.employee.name}</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="profile">My Profile</a>
+                            <a class="dropdown-item" href="#">Edit Profile</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="Logout">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="dropdown mobile-user-menu float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profile">My Profile</a>
+                        <a class="dropdown-item" href="#">Edit Profile</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+                    <div id="sidebar-menu" class="sidebar-menu">
+                        <ul>
+                            <li class="menu-title">Main</li>
+                            <li>
+                                <a href="dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a href="account"><i class="fa fa-users"></i> <span>Accounts</span></a>
+                            </li>
+                            <li>
+                                <a href="employee"><i class="fa fa-id-card"></i> <span>Employees</span></a>
+                            </li>
+                            <li> 
+                                <a href="department"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                            </li>    
+                            <li>
+                                <a href="#"><i class="fa fa-flag-o"></i> <span>Attendance Report</span> </a>
+                            </li>
+                            <li> 
+                                <a href="viewsendapplication"><i class="fa fa-paper-plane-o"></i> <span>View Application</span> </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                            </li>    
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="page-wrapper">
                 <div class="content">
                     <div class="row">
@@ -79,154 +200,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="chart-title">
-                                    <h4>Employee By Department</h4>
-                                </div>	
-                                <canvas id="myDoughnutChart" width="400" height="400"></canvas>
-                                <script>
-                                    // Khai báo bi?n departmentData bên ngoài vòng l?p
-                                    var departmentData = {
-                                        labels: [],
-                                        datasets: [{
-                                                data: [],
-                                                backgroundColor: [
-                                                    'rgb(255, 99, 132)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(255, 205, 86)',
-                                                    'rgb(75, 192, 192)',
-                                                    'rgb(153, 102, 255)',
-                                                    'rgb(255, 159, 64)',
-                                                    'rgb(255, 77, 77)',
-                                                    'rgb(92, 184, 92)',
-                                                    'rgb(240, 173, 78)',
-                                                    'rgb(112, 146, 190)',
-                                                    'rgb(217, 83, 79)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(183, 55, 156)',
-                                                    'rgb(64, 191, 128)',
-                                                    'rgb(255, 184, 82)',
-                                                    'rgb(70, 130, 180)',
-                                                    'rgb(0, 128, 0)',
-                                                    'rgb(255, 20, 147)'
-                                                ]
-                                            }]
-                                    };
-
-                                    <c:forEach var="entry" items="${listDepartmentEmployee}">
-                                    var departmentName = "${entry.departmentName}";
-                                    var employeeCount = ${entry.employeeCount};
-                                    departmentData.labels.push(departmentName);
-                                    departmentData.datasets[0].data.push(employeeCount);
-                                    </c:forEach>
-                                    // L?y th? canvas ?? v? bi?u ??
-                                    var ctx = document.getElementById('myDoughnutChart').getContext('2d');
-
-                                    // T?o bi?u ?? doughnut
-                                    var myDoughnutChart = new Chart(ctx, {
-                                        type: 'doughnut',
-                                        data: departmentData,
-                                        options: {
-                                            // Tùy ch?n khác có th? ???c thêm vào ? ?ây
-                                        }
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="chart-title">
-                                    <h4>Attendance By Department</h4>
-                                    <div class="float-right">
-                                        <ul class="chat-user-total">      
-                                        </ul>
-                                    </div>
-                                </div>	
-                                <canvas id="myBarChart" width="400" height="400"></canvas>
-
-                                <script>
-                                    var attendanceData = {
-                                        labels: [],
-                                        datasets: [{
-                                                label: ["%"],
-                                                data: [],
-                                                backgroundColor: [
-                                                    'rgb(255, 99, 132)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(255, 205, 86)',
-                                                    'rgb(75, 192, 192)',
-                                                    'rgb(153, 102, 255)',
-                                                    'rgb(255, 159, 64)',
-                                                    'rgb(255, 77, 77)',
-                                                    'rgb(92, 184, 92)',
-                                                    'rgb(240, 173, 78)',
-                                                    'rgb(112, 146, 190)',
-                                                    'rgb(217, 83, 79)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(183, 55, 156)',
-                                                    'rgb(64, 191, 128)',
-                                                    'rgb(255, 184, 82)',
-                                                    'rgb(70, 130, 180)',
-                                                    'rgb(0, 128, 0)',
-                                                    'rgb(255, 20, 147)'
-                                                ],
-                                                borderColor: [
-                                                    'rgb(255, 99, 132)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(255, 205, 86)',
-                                                    'rgb(75, 192, 192)',
-                                                    'rgb(153, 102, 255)',
-                                                    'rgb(255, 159, 64)',
-                                                    'rgb(255, 77, 77)',
-                                                    'rgb(92, 184, 92)',
-                                                    'rgb(240, 173, 78)',
-                                                    'rgb(112, 146, 190)',
-                                                    'rgb(217, 83, 79)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(183, 55, 156)',
-                                                    'rgb(64, 191, 128)',
-                                                    'rgb(255, 184, 82)',
-                                                    'rgb(70, 130, 180)',
-                                                    'rgb(0, 128, 0)',
-                                                    'rgb(255, 20, 147)'
-                                                ],
-                                                borderWidth: 1
-                                            }]
-                                    };
-                                    <c:forEach var="entry" items="${departmentAttendanceList}">
-                                    var departmentName = "${entry.departmentName}";
-                                    var attendancePercentage = ${entry.attendancePercentage};
-                                    attendanceData.labels.push(departmentName);
-                                    attendanceData.datasets[0].data.push(attendancePercentage);
-                                    </c:forEach>
-                                    var ctxBar = document.getElementById('myBarChart').getContext('2d');
-
-                                    var myBarChart = new Chart(ctxBar, {
-                                        type: 'bar',
-                                        data: attendanceData,
-                                        options: {
-                                            scales: {
-                                                yAxes: [{
-                                                        ticks: {
-                                                            beginAtZero: true
-                                                        }
-                                                    }]
-                                            },
-                                            legend: {
-                                                display: false // ?n nhãn c?a bi?u ??
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>       
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-8 col-xl-8">
                         <div class="card">

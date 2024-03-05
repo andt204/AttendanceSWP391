@@ -26,7 +26,7 @@
             <![endif]-->
         <script type="text/javascript">
             function doDelete(id) {
-                if (confirm("are you sure to delete id = " + id)) {
+                if (confirm("Are you sure to delete Employee ID = " + id)) {
                     window.location = "delete-employee?id=" + id;
                 }
             }
@@ -42,7 +42,7 @@
         <div class="main-wrapper">
             <% if (role == 2) { %>
             <jsp:include page="SideBarforEm.jsp" />
-            <% } else if (role == 3|| role == 1) { %>
+            <% } else if (role == 3) { %>
             <jsp:include page="SideBarforManager.jsp" />
             <% } %>
             <div class="page-wrapper">
@@ -95,7 +95,7 @@
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item" href="update-employee?id=${e.employeeId}"><i class="fa fa-pencil m-r-5"></i>Edit</a>
-                                                                <a class="dropdown-item" href="#" onclick="doDelete('${e.employeeId}')" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                                <a class="dropdown-item" href="delete-employee?id=${e.employeeId}"  onclick="doDelete('${e.employeeId}')" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
