@@ -4,7 +4,6 @@
  */
 package controller;
 
-import configs.headerInfor;
 import dal.ApplicationDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -28,7 +27,6 @@ public class ViewSendApplicationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        headerInfor.setSessionAttributes(request);
         ApplicationDAO a = new ApplicationDAO();
         AccountDTO account = (AccountDTO) request.getSession().getAttribute("account");
         if (account == null) {

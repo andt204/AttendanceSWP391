@@ -66,7 +66,7 @@
         <div class="main-wrapper">
             <% if (role == 2) { %>
             <jsp:include page="SideBarforEm.jsp" />
-            <% } else if (role == 3|| role == 1) { %>
+            <% } else if (role == 3) { %>
             <jsp:include page="SideBarforManager.jsp" />
             <% } %>
             //CODE CHINH O DAY
@@ -102,11 +102,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="title">Title:</label>
-                                            <textarea id="title" name="title" rows="1" placeholder="Enter title" required=""></textarea>
+                                            <textarea id="title" name="title" rows="1" placeholder="Enter title"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="content">Content:</label>
-                                            <textarea id="content" name="content" rows="4" placeholder="Enter content" required=""></textarea>
+                                            <textarea id="content" name="content" rows="4" placeholder="Enter content"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="file-attach">Attach File:</label>

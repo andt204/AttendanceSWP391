@@ -116,7 +116,7 @@ public class Authentication implements Filter {
 //        } else {
 //            filterchain.doFilter(servletRequest, servletResponse);
 //        }
-        
+
         if (url.contains("404.jsp")) {
             filterchain.doFilter(servletRequest, servletResponse);
         } else if (url.contains("Login")) {
@@ -152,19 +152,7 @@ public class Authentication implements Filter {
                     filterchain.doFilter(servletRequest, servletResponse);
                 }
 
-            } else {
-                response.sendRedirect(request.getContextPath() + "/401.jsp");
             }
-        } else if (url.contains("employeedetailapplication")) {
-            if (user != null) {
-                if (user.getRole() == 1 || user.getRole() == 3 || user.getRole() == 2) {
-                    filterchain.doFilter(servletRequest, servletResponse);
-                } else {
-                    response.sendRedirect(request.getContextPath() + "/401.jsp");
-                }
-
-            }
-
         } else {
 
             if (user != null) {
