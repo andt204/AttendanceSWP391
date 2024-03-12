@@ -129,6 +129,9 @@
                         <li>
                             <a href="ExportFileController"><i class="fa fa-download"></i> <span>Export File</span></a>
                         </li> 
+                         <li>
+                            <a href="ViewProject"><i class="fa fa-plus-square"></i> <span>Project</span></a>
+                        </li>
                         <li>
                             <a href="Setting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                         </li>
