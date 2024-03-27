@@ -74,36 +74,7 @@
                             <a href="#" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#add_event"><i class="fa fa-plus"></i> Add Project</a>
                         </div> <% } %>
                     </div>
-                    <div class="main-option">
-                        <div class="main-option-search">
-                            <nav class="navbar navbar-light bg-light justify-content-between">
-
-                                <div class="form-group mr-sm-2 flex-grow-1">
-                                    <label for="fromDate">Search:</label>
-                                    <input class="form-control w-100" name="search" type="text" placeholder="Search" aria-label="Search" style="height: 30px;">
-                                </div>
-                                <div class="form-group mr-sm-2" style="margin-top: 25px">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 40px;"name="btAction" value="Search">Search</button>
-                                </div>
-                                <div class="form-group mr-sm-2">
-                                    <label for="fromDate">From:</label>
-                                    <input type="date" name="dateFrom" id="fromDate" class="form-control" style="height: 30px;  ">
-                                </div>
-                                <div class="form-group mr-sm-2">
-                                    <label for="toDate">To:</label>
-                                    <input type="date" name="dateEnd" id="toDate" class="form-control" style="height: 30px;">
-                                </div>
-                                <div class="form-group mr-sm-2"style="margin-top: 25px">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 40px;"name="btAction"value="Find">Find</button>
-                                </div>
-
-                            </nav>
-
-
-                        </div>
-                    </div>
-
-                    </form>
+                  
                     <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">

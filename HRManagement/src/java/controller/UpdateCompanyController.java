@@ -5,6 +5,7 @@
 package controller;
 
 import configs.Validate;
+import configs.headerInfor;
 import dal.CompanyDAO;
 import dal.DepartmentDAO;
 import dal.EmployeeDAO;
@@ -73,7 +74,7 @@ public class UpdateCompanyController extends HttpServlet {
         
          HttpSession session =  request.getSession();
         AccountDTO acc = (AccountDTO) session.getAttribute("account");
-
+        headerInfor.setSessionAttributes(request);
         request.setAttribute("id", 1);
         // set attribute employeeList
         CompanyDAO dao = new CompanyDAO();

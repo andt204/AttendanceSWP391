@@ -38,10 +38,13 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+     
+       
         AccountDTO acc = (AccountDTO) session.getAttribute("account");
 
         headerInfor.setSessionAttributes(request);
-     
+       
+       
         request.getRequestDispatcher("Profile.jsp").forward(request, response);
     }
 

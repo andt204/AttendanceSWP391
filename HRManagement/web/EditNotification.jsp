@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-        <title>Manager Dashboard</title>
+        <title>Edit Notification</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
@@ -71,14 +71,13 @@
                                     function confirmSend() {
                                         var option1 = document.getElementById("option1");
                                         var option2 = document.getElementById("option2");
-
-                                        // Kiểm tra xem cả hai tùy chọn đều không được chọn hoặc cả hai đều được chọn
+                              
                                         if ((option1.checked && option2.checked) || (!option1.checked && !option2.checked)) {
                                             alert("You need to choose 1 or 2");
-                                            return false; // Ngăn form được gửi đi nếu cả hai tùy chọn đều được chọn hoặc không có tùy chọn nào được chọn
+                                            return false; 
                                         }
 
-                                        // Xác nhận khi chỉ có một tùy chọn được chọn
+                                        
                                         var confirmSend = confirm("Are you sure to edit this Notification?");
                                         if (confirmSend) {
                                             alert("Edit Notification Successfully!");

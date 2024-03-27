@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ThuyVy/Desktop/workspace/AttendanceSWP391/HRManagement/web/ViewSalaryEmployee.jsp</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/web/ChangePassword.jsp</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/web/CompanySetting.jsp</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/src/java/controller/ViewSalaryEmployee.java</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/web/SideBarSetting.jsp</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/src/java/controller/ViewFeedback.java</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/src/java/controller/UpdateCompanyController.java</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/web/SideBarforEm.jsp</file>
+            <file>file:/D:/IT3/AttendanceSWP391/HRManagement/web/EditNotification.jsp</file>
         </group>
     </open-files>
 </project-private>

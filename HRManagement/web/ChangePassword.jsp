@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="models.AccountDTO" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,16 +15,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
         <title>Change Password</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+          <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
     </head>
 
     <body>
         <div class="main-wrapper account-wrapper">
-            <%@include file="SideBarSetting.jsp" %>
+              <jsp:include page="SideBarSetting.jsp" />
             <div class="account-page" >
                 <div class="account-center">
                     <div class="col-md-6 offset-md-3">
@@ -106,6 +109,7 @@
 
             </div>
         </div>
+                                              <div class="sidebar-overlay" data-reff=""></div>
         <script>
             function togglePassword(inputId) {
                 const inputElement = document.querySelector(inputId);
@@ -120,10 +124,13 @@
             }
         </script>
 
-        <script src="assets/js/jquery-3.2.1.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/app.js"></script>
+      <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/Chart.bundle.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/app.js"></script>
     </body>
 
 </html>

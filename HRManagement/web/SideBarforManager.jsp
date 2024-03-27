@@ -5,7 +5,7 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page import="models.AccountDTO" %>
 <!DOCTYPE html>
 <html>
     <aside>
@@ -66,7 +66,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="profile">My Profile</a>
-                        <a class="dropdown-item" href="UpdateInformation">Edit Profile</a>
+                        <a class="dropdown-item" href="UpdateInformation?empID=${em.userId}">Edit Profile</a>
                         <a class="dropdown-item" href="Setting">Setting</a>
                         <a class="dropdown-item" href="Logout">Logout</a>
                     </div>
@@ -76,7 +76,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="profile">My Profile</a>
-                    <a class="dropdown-item" href="UpdateInformation">Edit Profile</a>
+                    <a class="dropdown-item" href="UpdateInformation?empID=${em.userId}">Edit Profile</a>
                     <a class="dropdown-item" href="Setting">Setting</a>
                     <a class="dropdown-item" href="Logout">Logout</a>
                 </div>
@@ -87,11 +87,11 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="menu-title">Main</li>
-                        
+
                         <c:if test="${account.getRole() == 1}">
                             <li>
-                            <a href="dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
-                        </li>
+                                <a href="dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            </li>
                         </c:if>
                         <c:if test="${account.getRole() == 3}">
                             <li>
@@ -145,9 +145,11 @@
                         <li>
                             <a href="ExportFileController"><i class="fa fa-download"></i> <span>Export File</span></a>
                         </li> 
-                        <li>
-                            <a href="ViewProject"><i class="fa fa-plus-square"></i> <span>Project</span></a>
-                        </li>
+                        <c:if test="${account.getRole() == 3}">
+                            <li>
+                                <a href="ViewProject"><i class="fa fa-plus-square"></i> <span>Project</span></a>
+                            </li>
+                        </c:if>
                         <li>
                             <a href="ChatSystem"><i class="fa fa-bell"></i> <span>Chat</span></a>
                         </li>
