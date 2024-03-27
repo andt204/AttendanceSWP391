@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import models.Attendance;
 
-
 import models.AttendanceSheet;
 
 import models.AttendanceDepartmentDTO;
@@ -129,7 +128,7 @@ public class AttendanceDAO {
             ps.setInt(1, emId);
             rs = ps.executeQuery();
             if (rs.next()) {
-                int attendanceId =rs.getInt("attendance_id");
+                int attendanceId = rs.getInt("attendance_id");
                 int employee_id = rs.getInt("employee_id");
                 String in_time = rs.getString("in_time");
                 String out_time = rs.getString("out_time");
@@ -151,7 +150,6 @@ public class AttendanceDAO {
         }
         return attendance;
     }
-
 
     public ArrayList<AttendanceDepartmentDTO> getAllAttendance(String search, String dep_name, Date fromDate, Date toDate) {
         ArrayList<AttendanceDepartmentDTO> list = new ArrayList<>();
@@ -325,7 +323,6 @@ public class AttendanceDAO {
         }
     }
 
-
     public void CallAttendanceByDay() {
         String procedureCall = "{CALL generateDailyAttendance()}";
 
@@ -343,26 +340,22 @@ public class AttendanceDAO {
 
     public ArrayList<AttendanceSheet> getAttendanceByEmployeeAndDateRange(int em_id, String month, String Year) {
         ArrayList<AttendanceSheet> attendanceList = new ArrayList<>();
-        String query = "SELECT e.name, "
-                + "       dates.date AS date, "
-                //                + "       COALESCE(a.status, 'Absent') AS status "
-                + "       a.status AS status "
-                + "FROM ("
-                + "    -- Tạo một bảng tạm thời chứa tất cả các ngày trong tháng được chỉ định\n"
-                + "    SELECT DATE_ADD('" + Year + "-" + month + "-01', INTERVAL (t4.i*10000 + t3.i*1000 + t2.i*100 + t1.i*10 + t0.i) DAY) AS date "
-                + "    FROM "
-                + "        (SELECT 0 AS i UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) AS t0, "
-                + "        (SELECT 0 AS i UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) AS t1, "
-                + "        (SELECT 0 AS i UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) AS t2, "
-                + "        (SELECT 0 AS i UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) AS t3, "
-                + "        (SELECT 0 AS i UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) AS t4 "
-                + "    WHERE DATE_FORMAT(DATE_ADD('" + Year + "-" + month + "-01', INTERVAL (t4.i*10000 + t3.i*1000 + t2.i*100 + t1.i*10 + t0.i) DAY), '%Y-%m') = '" + Year + "-" + month + "'"
-                + ") AS dates "
+        String query = "WITH RECURSIVE DateRange AS ("
+                + "    SELECT DATE_ADD('" + Year + "-" + month + "-01', INTERVAL 0 DAY) AS date "
+                + "    UNION ALL "
+                + "    SELECT DATE_ADD(date, INTERVAL 1 DAY) "
+                + "    FROM DateRange "
+                + "    WHERE DATE_ADD(date, INTERVAL 1 DAY) < DATE_ADD('" + Year + "-" + month + "-01', INTERVAL 1 MONTH)"
+                + ")"
+                + "SELECT e.name, "
+                + "       dr.date AS date, "
+                + "       COALESCE(a.status) AS status "
+                + "FROM DateRange dr "
                 + "CROSS JOIN (SELECT DISTINCT employee_id FROM attendance) AS aid "
                 + "JOIN employee e ON aid.employee_id = e.employee_id "
-                + "LEFT JOIN attendance a ON e.employee_id = a.employee_id AND dates.date = DATE_FORMAT(a.date, '%Y-%m-%d') "
-                + "where e.employee_id = ? "
-                + "ORDER BY e.employee_id, dates.date;";
+                + "LEFT JOIN attendance a ON e.employee_id = a.employee_id AND dr.date = DATE_FORMAT(a.date, '%Y-%m-%d') "
+                + "WHERE e.employee_id = ? "
+                + "ORDER BY e.employee_id, dr.date;";
 
         try {
             con = new DBContext().getConnection();

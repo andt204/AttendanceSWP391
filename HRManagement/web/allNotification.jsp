@@ -45,8 +45,8 @@
 
                 <div class="content">
                     <div class="row">
-                        <div class="col-12">
-                            <h1 class="page-title" style="text-align: center">Notification</h1>
+                        <div class="col-sm-5 col-5">
+                            <h4 class="page-title">Notification</h4>
                         </div>
                     </div>
                     <div class="main-option">
@@ -115,9 +115,9 @@
                                             <th>Time </th>
                                             <th>Subject</th>
                                             <th>Description</th>
-                                              <%if (role == 3 || role == 1) { %>
+                                                <%if (role == 3 || role == 1) { %>
                                             <th class="text-right">Action</th>
-                                               <% } %>
+                                                <% } %>
                                         </tr>
                                     </thead>
                                     <tbody>

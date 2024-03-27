@@ -66,11 +66,11 @@
 
                 <div class="content">
                     <div class="row">
-                        <div class="col-12">
-                            <h1 class="page-title" style="text-align: center">Project</h1>
+                        <div class="col-sm-5 col-5">
+                            <h1 class="page-title">Project</h1>
                         </div>
                         <%  if (role == 3) { %>
-                        <div class="col-sm-4 col-8 text-right m-b-30" style="margin-left: 65%;">
+                        <div class="col-sm-7 col-7 text-right m-b-30" >
                             <a href="#" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#add_event"><i class="fa fa-plus"></i> Add Project</a>
                         </div> <% } %>
                     </div>
@@ -145,7 +145,7 @@
                                                     <%  if (role == 3) { %>
                                         <form action="ManagerProject?ProjectID=${o.projectId}" method="POST"  id="formToDelete">
                                             <td class="column-2">
-                                                
+
                                                 <button class="rounded-square" style="background-color: red;" type="submit" value="Delete" name="btnAction" onclick="return confirmAction()">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
@@ -159,13 +159,13 @@
                                                         </svg>
                                                     </button>
                                                 </a>
-                                               
+
 
                                             </td>
 
-                                           
+
                                         </form>
- <% } %> 
+                                        <% } %> 
 
                                         </tr>
                                     </c:forEach>
@@ -331,7 +331,7 @@
                 }
             }
             function confirmUpdateProject() {
-               const form = document.getElementById("edit_project_form");
+                const form = document.getElementById("edit_project_form");
 
                 const requiredFields = form.querySelectorAll('[required]');
                 let isValid = true;
@@ -355,9 +355,9 @@
                 }
             }
             function confirmAction() {
-              
+
                 if (confirm("Are you sure to delete this Project ?")) {
-                 
+
                     document.getElementById("formToDelete").submit();
                 } else {
                     // N?u ng??i dùng nh?n Cancel, không làm gì c?
